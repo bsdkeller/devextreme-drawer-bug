@@ -20,6 +20,7 @@ export class SideNavInnerToolbarComponent implements OnInit {
 
   menuOpened!: boolean;
   temporaryMenuOpened = false;
+  useMobileVersion = true;
 
   @Input()
   title!: string;
@@ -48,6 +49,7 @@ export class SideNavInnerToolbarComponent implements OnInit {
   updateDrawer() {
     const isXSmall = this.screen.sizes['screen-x-small'];
     const isLarge = this.screen.sizes['screen-large'];
+    this.useMobileVersion = this.screen.sizes['screen-x-small'];
 
     this.menuMode = isLarge ? 'shrink' : 'overlap';
     this.menuRevealMode = isXSmall ? 'slide' : 'expand';
